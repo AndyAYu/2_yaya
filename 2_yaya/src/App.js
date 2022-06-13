@@ -1,23 +1,17 @@
 import logo from './logo.svg';
-import './App.css';
+import * as React from 'react';
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          HAHA!
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <label>
+        What animals should we see?
+        <select>
+          <option value='Sky'>Sky</option>
+          <option value='Land'>Land</option>
+          <option value='Sea'>Sea</option>
+        </select>
+      </label>
     </div>
   );
 }
