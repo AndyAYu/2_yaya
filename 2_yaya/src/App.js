@@ -3,15 +3,24 @@ import * as React from 'react';
 
 const App = () => {
   const options = [
-    {label: 'Sky' , value: 'sky' },
-    {label: 'Land' , value: 'land' },
-    {label: 'Sea' , value: 'sea' },
+    {label: 'Sky' , value: 'sky' , color: 'lightblue'},
+    {label: 'Land' , value: 'land' , color: 'brown' },
+    {label: 'Sea' , value: 'sea' , color: 'navyblue' },
   ]
   const [value, setValue] = React.useState('sky');
+  const [color, setColor] = React.useState('lightblue')
 
-  const handleChange = (event) => {
+  const handleValueChange = (event) => {
     setValue(event.target.value);
   };
+  const handleColorChange = (event) => {
+    debugger
+    setColor(event.target.color);
+    debugger
+  };
+  
+  
+
 
   return (
     <div>
@@ -19,21 +28,27 @@ const App = () => {
         label="What will we see?"
         options={options}
         value={value}
-        onChange={handleChange}
+        color={color}
+        onValueChange={handleValueChange}
+        onColorChange={handleColorChange}
       />
 
-      <p>We will see {value} animals!</p>  
+      <p>We will see {value} animals! {color}</p>  
     </div>
   );
 };
 
-const Dropdown = ({ label, value, options, onChange}) => {
+const Dropdown = ({ label, value, options, onValueChange}) => {
   return (
   <label>
         {label}
-        <select value={value} onChange={onChange}>
+        <select value={value} onChange={onValueChange} >
           {options.map((option) => (
-            <option value={option.value}>{option.label}</option>
+            <option 
+            color={option.color}
+            value={option.value}>
+              {option.label}
+            </option>
             ))}
         </select>
       </label>
