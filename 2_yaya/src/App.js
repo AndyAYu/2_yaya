@@ -15,18 +15,29 @@ const App = () => {
 
   return (
     <div>
-      <label>
-        What animals should we see?
-        <select value={value} onChange={handleChange}>
-          {options.map((option) => (
-            <option value={option.value}>{option.label}</option>
-          ))}
-        </select>
-      </label>
+      <Dropdown
+        label="What will we see?"
+        options={options}
+        value={value}
+        onChange={handleChange}
+      />
 
-      <p>We will see {value} animals!</p>
+      <p>We will see {value} animals!</p>  
     </div>
   );
-}
+};
+
+const Dropdown = ({ label, value, options, onChange}) => {
+  return (
+  <label>
+        {label}
+        <select value={value} onChange={onChange}>
+          {options.map((option) => (
+            <option value={option.value}>{option.label}</option>
+            ))}
+        </select>
+      </label>
+  );
+};
 
 export default App;
