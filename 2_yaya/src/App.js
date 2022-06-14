@@ -8,17 +8,12 @@ const App = () => {
     {label: 'Sea' , value: 'sea' , color: 'navyblue' },
   ]
   const [value, setValue] = React.useState('sky');
-  const [color, setColor] = React.useState('lightblue')
+  const [color, setColor] = React.useState('lightblue');
 
   const handleValueChange = (event) => {
+    setColor(event.target.color);
     setValue(event.target.value);
   };
-  const handleColorChange = (event) => {
-    debugger
-    setColor(event.target.color);
-    debugger
-  };
-  
   
 
 
@@ -30,7 +25,6 @@ const App = () => {
         value={value}
         color={color}
         onValueChange={handleValueChange}
-        onColorChange={handleColorChange}
       />
 
       <p>We will see {value} animals! {color}</p>  
